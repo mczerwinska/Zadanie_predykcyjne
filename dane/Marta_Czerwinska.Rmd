@@ -1,0 +1,29 @@
+---
+title: "Zadanie predykcyjne"
+author: "Marta Czerwiñska"
+date: "1 maja 2016"
+output: pdf_document
+---
+W zadaniu predykcyjnym mia³am do przeanalizowania dane dotycz¹ce klientów operatora telekomunikacyjnego. Dane zawiera³y 21 zmiennych, przy czym ostatnia zmienna by³a flag¹ dotycz¹c¹ trwania lub rezygnacji danego klienta z us³ug firmy.
+
+W pierwszym kroku analizy wczytujê dane, sprawdzam czy wystêpuj¹ jakiekolwiek braki w danych (w sytuacji zaobserwowania jakiekogoœ braku informacji uzupe³ni³abym go œredni¹ lokaln¹, globaln¹ lub median¹, w zale¿noœci od typu zmiennej) oraz wybieram zmienne najbardziej istotne z punktu widzenie analizy.
+
+Za pomoc¹ korelacji pomiêdzy zmiennymi oraz wybraniu najbardziej istotnych spoœród nich do modelowania wybieram 12 zmiennych objaœniaj¹cych plus zmienn¹ objaœnian¹ (zmienna Churn.).
+
+Zmiennymi objaœniaj¹cymi s¹: Int.l.Plan, Day.Mins, Day.Calls, Day.Charge, Eve.Mins, Eve.Calls, Eve.Charge, Night.Mins, Night.Charge, Intl.Mins, Intl.Charge, CustServ.Calls.
+
+W celu zbadania dok³adnoœci, precyzji oraz czu³oœci u¿ytych przeze mnie modeli dzielê w sposób losowy zbiór wejœciowy (churn.csv) na zbiór treningowy (800 wierszy) i testowy (866 wierszy).
+
+Przez dok³adnoœæ rozumiem ile procent obserwacji dany model dobrze sklasyfikowa³.
+Precyzj¹ jest stosunek liczy klientów prawid³owo sklasyfikowanych przez model, jako tych którzy zostali (w danych Churn.="False") przez wszystkich sklasyfikowanych przez model jako klientów, którzy nie zrezygnowali z us³ug firmy. Zaœ czu³oœci¹ jest stosunek osób dobrze sklasyfikowanych przez model, jako tych którzy nie zrezygnowali z us³ug firmy do iloœci osób, które w rzeczywistoœci nie zrezygnowa³y z us³ug firmy. 
+
+
+Na podstawie tych trzech miar wybiorê model, z najlepszymi wynikami. Do przetestowania wybra³am kilka metod, s¹ nimi: LDA, GLM, naiwny Bayes, drzewa decyzyjne, bagging, lasy losowe.
+
+Po obserwacji wyników wszystkich wy¿ej podanych metod, okaza³o siê ¿e najlepsz¹ dok³adnoœæ, prezycjê i czu³oœæ maj¹ lasy losowe. Z tego powodu do predykcji zadanego przez Pañstwa zadania u¿y³am tej metody. 
+
+Wyniki predykcji zapisa³am w pliku pod nazw¹ "churn_wdrozenie_Marta_Czerwinska.csv".
+
+
+
+
